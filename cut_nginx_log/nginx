@@ -1,0 +1,1 @@
+*/5 * * * * root /data/nginx/script/cutlog.sh 1>/dev/null 2>&1
