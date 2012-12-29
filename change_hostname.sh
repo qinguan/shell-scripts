@@ -1,5 +1,5 @@
 #!/bin/bash
-# change the hostname
+# change the hostname On CentOS/REHL
 
 function show_usage {
 	echo "Usage: $0 hostname"
