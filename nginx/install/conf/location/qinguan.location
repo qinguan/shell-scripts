@@ -1,0 +1,19 @@
+	location ~ /apis/
+	{
+		proxy_pass http://api_product;
+		include common/proxy_setting;
+	}
+        
+	location =/crossdomain.xml 
+	{
+		access_log /data/nginx/logs/crossdomain_access.log qinguan;
+		alias /usr/local/nginx/conf/crossdomain.xml;
+	}
+
+	location = /favicon.ico {
+		access_log off;
+		return 403;
+	}
+
+
+

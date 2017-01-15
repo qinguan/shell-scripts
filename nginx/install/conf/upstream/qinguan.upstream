@@ -1,0 +1,24 @@
+upstream api_product{
+	server 192.168.2.2:8080 max_fails=1000 fail_timeout=10s weight=6;
+	server 192.168.2.3:8080 max_fails=1000 fail_timeout=10s weight=6;
+	server 192.168.2.6:8080 max_fails=1000 fail_timeout=10s weight=6 backup;
+	
+	keepalive 24;
+        keepalive_timeout 10s;
+    	
+	check interval=10000 rise=2 fall=3 timeout=1000 type=http default_down=false;
+	check_http_send "GET /apis/server_status.action HTTP/1.0\r\n\r\n";
+	check_http_expect_alive http_2xx;	
+}
+
+upstream api_test{
+	server 192.168.2.4:8080 max_fails=1000 fail_timeout=10s weight=6;
+	server 192.168.2.5:8080 max_fails=1000 fail_timeout=10s weight=6;
+	
+	keepalive 24;
+        keepalive_timeout 10s;
+    	
+	check interval=10000 rise=2 fall=3 timeout=1000 type=http default_down=false;
+	check_http_send "GET /apis/server_status.action HTTP/1.0\r\n\r\n";
+	check_http_expect_alive http_2xx;	
+}
