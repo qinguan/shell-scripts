@@ -56,5 +56,4 @@ rm -rf ../ngx_devel_kit-0.3.0
 rm -rf ../lua-nginx-module-0.10.6
 rm -rf ../jemalloc-3.4.0
 rm -rf ../echo-nginx-module
-rm -rf ../ngx_echotime
 rm -rf ../tengine-2.2.0

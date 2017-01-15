@@ -1,1 +1,2 @@
-*/5 * * * * root /data/nginx/script/cutlog.sh 1>/dev/null 2>&1
+*/5 * * * * root /data/nginx/script/cut_log.sh 1>/dev/null 2>&1
+0 1 * * * root /data/nginx/script/clean_log.sh 1>/dev/null 2>&1
